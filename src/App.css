@@ -21,7 +21,7 @@ body {
     color: red;
   }
 
-  p {
+  .description {
     margin-bottom: 1rem;
   }
 
@@ -29,5 +29,19 @@ body {
     color: chocolate;
     font-weight: bold;
     font-size: large;
+  }
+
+  .germanNoun {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #555;
+  }
+
+  .article-singular {
+    color: aqua;
+  }
+
+  .plural {
+    color: greenyellow;
   }
 }

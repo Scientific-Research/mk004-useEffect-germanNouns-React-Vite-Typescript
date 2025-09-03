@@ -2,11 +2,17 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+interface IGermanNouns {
+  article: string;
+  singular: string;
+  plural: string;
+}
+
 const germanNounsURL =
   'https://edwardtanguay.vercel.app/share/germanNouns.json';
 
 function App() {
-  const [showGermanNouns, setShowGermanNouns] = useState([]);
+  const [showGermanNouns, setShowGermanNouns] = useState<IGermanNouns[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -22,18 +28,18 @@ function App() {
       <h1>useEffect-germanNouns-React-Vite-Typescript</h1>
       <h3>Welcome to this Site.</h3>
 
-      <p>
+      <p className="description">
         There are <span>{showGermanNouns.length}</span> germnan Nouns in this
         JSON file!
       </p>
 
       <div className="germanNouns">
-        {showGermanNouns.map((gn) => (
-          <div className="germanNoun">
-            <p>
+        {showGermanNouns.map((gn, index) => (
+          <div className="germanNoun" key={index}>
+            <p className="article-singular">
               {gn.article} {gn.singular}
             </p>
-            <p>{gn.plural}</p>
+            <p className="plural">{gn.plural}</p>
           </div>
         ))}
       </div>
