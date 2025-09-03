@@ -3,3 +3,8 @@
   - x add additional property to each object: isOpen
    - x onClick
    - x handleToggleFlashCard()
+- x create button "Mark as learned"
+  - add additional property to each object: isLearned
+  - onClick
+  - handleMarkAsLearnedClick
+  - if isLearned, then don't show: {!isLearned && ()}

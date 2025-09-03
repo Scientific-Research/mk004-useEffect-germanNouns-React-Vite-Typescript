@@ -60,4 +60,9 @@ body {
       font-weight: bold;
     }
   }
+
+  .markAsLearned {
+    margin-top: 0.5rem;
+    padding: 0.1rem;
+  }
 }

@@ -82,6 +82,7 @@ function App() {
                   {gn.article} {gn.singular}
                 </div>
                 <div className="plural">{gn.plural}</div>
+                <button className="markAsLearned">Mark as learned</button>
               </div>
             )}
           </div>
