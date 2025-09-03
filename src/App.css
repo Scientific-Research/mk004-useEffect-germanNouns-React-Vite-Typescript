@@ -34,7 +34,7 @@ body {
   .germanNoun {
     margin: 1rem 0;
     padding: 1rem;
-    background-color: #555;
+    background-color: rgb(12, 41, 12);
   }
 
   .article-singular {

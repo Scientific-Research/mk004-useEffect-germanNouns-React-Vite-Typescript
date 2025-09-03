@@ -37,9 +37,10 @@ function App() {
         {showGermanNouns.map((gn, index) => (
           <div className="germanNoun" key={index}>
             <p className="article-singular">
-              {gn.article} {gn.singular}
+              {/* {gn.article} {gn.singular} */}
+              {gn.singular}
             </p>
-            <p className="plural">{gn.plural}</p>
+            {/* <p className="plural">{gn.plural}</p> */}
           </div>
         ))}
       </div>
