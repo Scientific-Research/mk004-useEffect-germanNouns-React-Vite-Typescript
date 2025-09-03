@@ -10,4 +10,5 @@
   - x if isLearned, then don't show the button: {!isLearned && ()}
   - x show "You have learned nnn of 124 nouns."
 
--  localStorage so that when user comes back to page, their progress is restored!
+-  .. localStorage so that when user comes back to page, their progress is restored!
+      - 

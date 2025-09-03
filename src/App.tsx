@@ -68,19 +68,24 @@ function App() {
     setShowGermanNouns(_showGermanNouns);
   };
 
+  const getNumberLearned = () => {
+    return showGermanNouns.reduce(
+      (total, noun) => total + (noun.isLearned ? 1 : 0),
+      0
+    );
+  };
+
   return (
     <div className="App">
       <h1>useEffect-germanNouns-React-Vite-Typescript</h1>
-      <h3>Welcome to this Site.</h3>
+      <h3>
+        German Nouns <span className="learnedSoFar">{getNumberLearned()}</span>{' '}
+        learned so far
+      </h3>
 
       <p className="description">
         You have learned{' '}
-        <span className="totalLearned">
-          {showGermanNouns.reduce(
-            (total, noun) => total + (noun.isLearned ? 1 : 0),
-            0
-          )}{' '}
-        </span>
+        <span className="totalLearned">{getNumberLearned()} </span>
         of <span className="length">{showGermanNouns.length}</span> germnan
         Nouns in this JSON file!
       </p>

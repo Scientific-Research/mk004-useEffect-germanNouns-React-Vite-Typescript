@@ -37,6 +37,12 @@ body {
     font-size: large;
   }
 
+  .learnedSoFar {
+    color: cornflowerblue;
+    font-weight: bold;
+    font-size: large;
+  }
+
   .germanNoun {
     margin: 1rem 0;
     padding: 1rem;
