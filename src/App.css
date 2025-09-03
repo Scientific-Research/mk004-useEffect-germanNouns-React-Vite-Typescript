@@ -38,10 +38,26 @@ body {
   }
 
   .article-singular {
-    color: aqua;
+    color: rgb(19, 120, 120);
   }
 
   .plural {
     color: greenyellow;
+    font-style: italic;
+    margin-top: 0.25rem;
+  }
+
+  .back {
+    margin-top: 0.5rem;
+    background-color: rgb(16, 61, 16);
+    padding: 0.3rem;
+  }
+
+  .front {
+    color: rgb(161, 145, 233);
+    cursor: pointer;
+    &:hover {
+      font-weight: bold;
+    }
   }
 }

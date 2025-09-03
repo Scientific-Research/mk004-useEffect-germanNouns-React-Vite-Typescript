@@ -46,12 +46,15 @@ function App() {
       <div className="germanNouns">
         {showGermanNouns.map((gn, index) => (
           <div className="germanNoun" key={index}>
-            <p className="article-singular">
-              {/* {gn.article} {gn.singular} */}
-              {gn.singular}
-              {gn.isOpen}
-            </p>
-            {/* <p className="plural">{gn.plural}</p> */}
+            <div className="front">{gn.singular}</div>
+            {gn.isOpen && (
+              <div className="back">
+                <div className="singular">
+                  {gn.article} {gn.singular}
+                </div>
+                <div className="plural">{gn.plural}</div>
+              </div>
+            )}
           </div>
         ))}
       </div>
