@@ -57,13 +57,15 @@ function App() {
     // setShowGermanNouns([...showGermanNouns]);
 
     // Third Solution
-    const _showGermanNouns = [...showGermanNouns];
     gn.isOpen = !gn.isOpen;
+    const _showGermanNouns = [...showGermanNouns];
     setShowGermanNouns(_showGermanNouns);
   };
 
-  const handleMarkAsLearnedClick = () => {
-    console.log('first');
+  const handleMarkAsLearnedClick = (gn: IGermanNouns) => {
+    gn.isLearned = true;
+    const _showGermanNouns = [...showGermanNouns];
+    setShowGermanNouns(_showGermanNouns);
   };
 
   return (
@@ -91,7 +93,7 @@ function App() {
                 {!gn.isLearned && (
                   <button
                     className="markAsLearned"
-                    onClick={handleMarkAsLearnedClick}
+                    onClick={() => handleMarkAsLearnedClick(gn)}
                   >
                     Mark as learned
                   </button>
