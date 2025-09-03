@@ -84,22 +84,22 @@ function App() {
             <div className="front" onClick={() => handleOnOffFront(gn)}>
               {gn.singular}
             </div>
-            {gn.isOpen && (
-              <div className="back">
-                <div className="singular">
-                  {gn.article} {gn.singular}
-                </div>
-                <div className="plural">{gn.plural}</div>
-                {!gn.isLearned && (
+            {gn.isLearned ||
+              (gn.isOpen && (
+                <div className="back">
+                  <div className="singular">
+                    {gn.article} {gn.singular}
+                  </div>
+                  <div className="plural">{gn.plural}</div>
+                  {/* {!gn.isLearned && ( */}
                   <button
                     className="markAsLearned"
                     onClick={() => handleMarkAsLearnedClick(gn)}
                   >
                     Mark as learned
                   </button>
-                )}
-              </div>
-            )}
+                </div>
+              ))}
           </div>
         ))}
       </div>
