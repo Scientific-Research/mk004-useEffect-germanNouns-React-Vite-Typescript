@@ -4,7 +4,7 @@
    - x onClick
    - x handleToggleFlashCard()
 - x create button "Mark as learned"
-  - add additional property to each object: isLearned
-  - onClick
+  - x add additional property to each object: isLearned
+  - .. onClick
   - handleMarkAsLearnedClick
-  - if isLearned, then don't show: {!isLearned && ()}
+  - if isLearned, then don't show the button: {!isLearned && ()}

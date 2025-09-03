@@ -7,6 +7,7 @@ interface IGermanNouns {
   singular: string;
   plural: string;
   isOpen: boolean;
+  isLearned: boolean;
 }
 
 const germanNounsURL =
@@ -26,6 +27,7 @@ function App() {
         const noun = {
           ...rawNoun,
           isOpen: false,
+          isLearned: false,
         };
         _nouns.push(noun);
       });
@@ -60,6 +62,10 @@ function App() {
     setShowGermanNouns(_showGermanNouns);
   };
 
+  const handleMarkAsLearnedClick = () => {
+    console.log('first');
+  };
+
   return (
     <div className="App">
       <h1>useEffect-germanNouns-React-Vite-Typescript</h1>
@@ -82,7 +88,14 @@ function App() {
                   {gn.article} {gn.singular}
                 </div>
                 <div className="plural">{gn.plural}</div>
-                <button className="markAsLearned">Mark as learned</button>
+                {!gn.isLearned && (
+                  <button
+                    className="markAsLearned"
+                    onClick={handleMarkAsLearnedClick}
+                  >
+                    Mark as learned
+                  </button>
+                )}
               </div>
             )}
           </div>
