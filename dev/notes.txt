@@ -1,5 +1,5 @@
 - x fetch nouns and display on page
-- .. enable user to click and show answer of flashcard
-  - .. add additional property to each object: isOpen
-   - onClick
-   - handleToggleFlashCard()
+- x enable user to click and show answer of flashcard
+  - x add additional property to each object: isOpen
+   - x onClick
+   - x handleToggleFlashCard()

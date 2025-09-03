@@ -14,6 +14,7 @@ const germanNounsURL =
 
 function App() {
   const [showGermanNouns, setShowGermanNouns] = useState<IGermanNouns[]>([]);
+  // const [_isOpen, _setIsOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -33,6 +34,32 @@ function App() {
     })();
   }, []);
 
+  // const handleOnOffFront = (gn: IGermanNouns) => {
+  //   if (!gn.isOpen) {
+  //     gn.isOpen = true;
+  //     console.log(gn.isOpen);
+  //   } else {
+  //     gn.isOpen = false;
+  //   }
+  // };
+
+  const handleOnOffFront = (gn: IGermanNouns) => {
+    // First Solution
+    // const handleOnOffFront = (gn: IGermanNouns) => {
+    //   _setIsOpen(!_isOpen);
+    //   gn.isOpen = _isOpen;
+    // };
+
+    // Second Solution
+    // gn.isOpen = !gn.isOpen;
+    // setShowGermanNouns([...showGermanNouns]);
+
+    // Third Solution
+    const _showGermanNouns = [...showGermanNouns];
+    gn.isOpen = !gn.isOpen;
+    setShowGermanNouns(_showGermanNouns);
+  };
+
   return (
     <div className="App">
       <h1>useEffect-germanNouns-React-Vite-Typescript</h1>
@@ -46,7 +73,9 @@ function App() {
       <div className="germanNouns">
         {showGermanNouns.map((gn, index) => (
           <div className="germanNoun" key={index}>
-            <div className="front">{gn.singular}</div>
+            <div className="front" onClick={() => handleOnOffFront(gn)}>
+              {gn.singular}
+            </div>
             {gn.isOpen && (
               <div className="back">
                 <div className="singular">
