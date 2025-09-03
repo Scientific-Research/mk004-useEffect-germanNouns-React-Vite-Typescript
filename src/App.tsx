@@ -74,8 +74,15 @@ function App() {
       <h3>Welcome to this Site.</h3>
 
       <p className="description">
-        There are <span>{showGermanNouns.length}</span> germnan Nouns in this
-        JSON file!
+        You have learned{' '}
+        <span className="totalLearned">
+          {showGermanNouns.reduce(
+            (total, noun) => total + (noun.isLearned ? 1 : 0),
+            0
+          )}{' '}
+        </span>
+        of <span className="length">{showGermanNouns.length}</span> germnan
+        Nouns in this JSON file!
       </p>
 
       <div className="germanNouns">
