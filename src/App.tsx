@@ -1,5 +1,5 @@
 // import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 interface IGermanNouns {
@@ -80,27 +80,30 @@ function App() {
 
       <div className="germanNouns">
         {showGermanNouns.map((gn, index) => (
-          <div className="germanNoun" key={index}>
-            <div className="front" onClick={() => handleOnOffFront(gn)}>
-              {gn.singular}
-            </div>
-            {gn.isLearned ||
-              (gn.isOpen && (
-                <div className="back">
-                  <div className="singular">
-                    {gn.article} {gn.singular}
-                  </div>
-                  <div className="plural">{gn.plural}</div>
-                  {/* {!gn.isLearned && ( */}
-                  <button
-                    className="markAsLearned"
-                    onClick={() => handleMarkAsLearnedClick(gn)}
-                  >
-                    Mark as learned
-                  </button>
+          <React.Fragment key={index}>
+            {!gn.isLearned && (
+              <div className="germanNoun" key={index}>
+                <div className="front" onClick={() => handleOnOffFront(gn)}>
+                  {gn.singular}
                 </div>
-              ))}
-          </div>
+                {gn.isOpen && (
+                  <div className="back">
+                    <div className="singular">
+                      {gn.article} {gn.singular}
+                    </div>
+                    <div className="plural">{gn.plural}</div>
+                    {/* {!gn.isLearned && ( */}
+                    <button
+                      className="markAsLearned"
+                      onClick={() => handleMarkAsLearnedClick(gn)}
+                    >
+                      Mark as learned
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </React.Fragment>
         ))}
       </div>
     </div>
