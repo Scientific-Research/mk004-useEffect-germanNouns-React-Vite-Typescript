@@ -6,6 +6,7 @@ interface IGermanNouns {
   article: string;
   singular: string;
   plural: string;
+  isOpen: boolean;
 }
 
 const germanNounsURL =
@@ -17,9 +18,18 @@ function App() {
   useEffect(() => {
     (async () => {
       const response = await axios(germanNounsURL);
-      const germanNouns = response.data;
-      console.log(germanNouns);
-      setShowGermanNouns(germanNouns);
+      const rawNouns = response.data;
+
+      const _nouns: IGermanNouns[] = [];
+      rawNouns.forEach((rawNoun: IGermanNouns) => {
+        const noun = {
+          ...rawNoun,
+          isOpen: false,
+        };
+        _nouns.push(noun);
+      });
+      setShowGermanNouns(_nouns);
+      console.log(showGermanNouns);
     })();
   }, []);
 
@@ -39,6 +49,7 @@ function App() {
             <p className="article-singular">
               {/* {gn.article} {gn.singular} */}
               {gn.singular}
+              {gn.isOpen}
             </p>
             {/* <p className="plural">{gn.plural}</p> */}
           </div>
