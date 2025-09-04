@@ -36,6 +36,10 @@ function App() {
     })();
   }, []);
 
+  const saveToLocalStorage = () => {
+    localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
+  };
+
   // const handleOnOffFront = (gn: IGermanNouns) => {
   //   if (!gn.isOpen) {
   //     gn.isOpen = true;
@@ -60,12 +64,16 @@ function App() {
     gn.isOpen = !gn.isOpen;
     const _showGermanNouns = [...showGermanNouns];
     setShowGermanNouns(_showGermanNouns);
+    // localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
+    saveToLocalStorage();
   };
 
   const handleMarkAsLearnedClick = (gn: IGermanNouns) => {
     gn.isLearned = true;
     const _showGermanNouns = [...showGermanNouns];
     setShowGermanNouns(_showGermanNouns);
+    // localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
+    saveToLocalStorage();
   };
 
   const getNumberLearned = () => {
