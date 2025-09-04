@@ -13,12 +13,16 @@ interface IGermanNouns {
 const germanNounsURL =
   'https://edwardtanguay.vercel.app/share/germanNouns.json';
 
+const localStorageVariableName = 'noun-game-state';
+
 function App() {
   const [showGermanNouns, setShowGermanNouns] = useState<IGermanNouns[]>([]);
   // const [_isOpen, _setIsOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
+      // const localStorageNouns = localStorage.getItem('noun-game-state');
+      const localStorageNouns = localStorage.getItem(localStorageVariableName);
       const response = await axios(germanNounsURL);
       const rawNouns = response.data;
 
@@ -39,7 +43,11 @@ function App() {
   const saveApplicationState = () => {
     const _showGermanNouns = [...showGermanNouns];
     setShowGermanNouns(_showGermanNouns);
-    localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
+    // localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
+    localStorage.setItem(
+      localStorageVariableName,
+      JSON.stringify(showGermanNouns)
+    );
   };
 
   // const handleOnOffFront = (gn: IGermanNouns) => {
