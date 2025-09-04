@@ -77,4 +77,9 @@ body {
     margin-top: 0.5rem;
     padding: 0.1rem;
   }
+
+  .resetButton {
+    padding: 0.25rem;
+    margin: 0.25rem;
+  }
 }

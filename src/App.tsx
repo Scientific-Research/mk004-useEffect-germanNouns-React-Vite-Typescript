@@ -102,6 +102,16 @@ function App() {
     );
   };
 
+  const handleResetTheTable = () => {
+    // const _showGermanNouns = [...showGermanNouns];
+    // setShowGermanNouns(_showGermanNouns);
+    // console.log(window.Object);
+    // console.log(location.reload);
+
+    localStorage.clear();
+    location.reload();
+  };
+
   return (
     <div className="App">
       <h1>useEffect-germanNouns-React-Vite-Typescript</h1>
@@ -115,6 +125,9 @@ function App() {
         <span className="totalLearned">{getNumberLearned()} </span>
         of <span className="length">{showGermanNouns.length}</span> germnan
         Nouns in this JSON file!
+        <button className="resetButton" onClick={handleResetTheTable}>
+          Reset Table
+        </button>
       </p>
 
       <div className="germanNouns">
