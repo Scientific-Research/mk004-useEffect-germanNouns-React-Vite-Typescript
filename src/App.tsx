@@ -36,7 +36,9 @@ function App() {
     })();
   }, []);
 
-  const saveToLocalStorage = () => {
+  const saveApplicationState = () => {
+    const _showGermanNouns = [...showGermanNouns];
+    setShowGermanNouns(_showGermanNouns);
     localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
   };
 
@@ -62,18 +64,18 @@ function App() {
 
     // Third Solution
     gn.isOpen = !gn.isOpen;
-    const _showGermanNouns = [...showGermanNouns];
-    setShowGermanNouns(_showGermanNouns);
+    // const _showGermanNouns = [...showGermanNouns];
+    // setShowGermanNouns(_showGermanNouns);
     // localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
-    saveToLocalStorage();
+    saveApplicationState();
   };
 
   const handleMarkAsLearnedClick = (gn: IGermanNouns) => {
     gn.isLearned = true;
-    const _showGermanNouns = [...showGermanNouns];
-    setShowGermanNouns(_showGermanNouns);
+    // const _showGermanNouns = [...showGermanNouns];
+    // setShowGermanNouns(_showGermanNouns);
     // localStorage.setItem('noun-game-state', JSON.stringify(showGermanNouns));
-    saveToLocalStorage();
+    saveApplicationState();
   };
 
   const getNumberLearned = () => {
