@@ -21,20 +21,29 @@ function App() {
 
   useEffect(() => {
     (async () => {
+      let _nouns: IGermanNouns[] = [];
       // const localStorageNouns = localStorage.getItem('noun-game-state');
       const localStorageNouns = localStorage.getItem(localStorageVariableName);
-      const response = await axios(germanNounsURL);
-      const rawNouns = response.data;
+      // console.log(localStorageNouns);
 
-      const _nouns: IGermanNouns[] = [];
-      rawNouns.forEach((rawNoun: IGermanNouns) => {
-        const noun = {
-          ...rawNoun,
-          isOpen: false,
-          isLearned: false,
-        };
-        _nouns.push(noun);
-      });
+      if (localStorageNouns !== null) {
+        // get the nouns from localStorage
+        _nouns = JSON.parse(localStorageNouns);
+      } else {
+        const response = await axios(germanNounsURL);
+        const rawNouns = response.data;
+
+        // const _nouns: IGermanNouns[] = [];
+        rawNouns.forEach((rawNoun: IGermanNouns) => {
+          const noun = {
+            ...rawNoun,
+            isOpen: false,
+            isLearned: false,
+          };
+          _nouns.push(noun);
+        });
+      }
+
       setShowGermanNouns(_nouns);
       console.log(showGermanNouns);
     })();
